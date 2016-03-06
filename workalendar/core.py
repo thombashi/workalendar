@@ -238,6 +238,18 @@ class Calendar(object):
         day = day + timedelta(days=day_delta)
         return day
 
+    def get_total_working_day(self, start_date, end_date):
+        current_date = start_date
+        working_days = 0
+
+        while current_date < end_date:
+            if self.is_working_day(current_date):
+                working_days += 1
+
+            current_date += datetime.timedelta(days=1)
+
+        return working_days
+
 
 class ChristianMixin(Calendar):
     EASTER_METHOD = None  # to be assigned in the inherited mixin
