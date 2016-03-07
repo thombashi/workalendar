@@ -246,7 +246,7 @@ class Calendar(object):
             if self.is_working_day(current_date):
                 working_days += 1
 
-            current_date += datetime.timedelta(days=1)
+            current_date += timedelta(days=1)
 
         return working_days
 
